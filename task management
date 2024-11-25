@@ -1,0 +1,46 @@
+tasks=[]
+def add_task():
+    task=input("Enter a task:")
+    tasks.append(task)
+    print("Task added successfully")
+def view_task():
+    for i,task in enumerate(tasks,start=1):
+        print(i,".",task)
+def delete_task():
+    del_task=input("Enter a task to remove:")
+    if del_task in tasks:
+        tasks.remove(del_task)
+        print("Task removed successfully")
+    else:
+        print("No task found! Try again...")
+def mark_as_done():
+    done_task=input("Enter a task:")
+    if done_task in tasks:
+        tasks.remove(done_task)
+        print(done_task,"is completed.It is removing... Keep it up.")
+def exit():
+    print("Exicting...Thank you!!!")
+    print("The remaining task are")
+    for i,task in enumerate(tasks,start=1):
+        print(i,".",task)
+while True:
+    print("Menu:")
+    print("1. Add task\n"
+          "2.View task\n"
+          "3.Delete task\n"
+          "4.Mark as done\n"
+          "5.Exit")
+    choice=int(input("Enter the choice:"))
+    if(choice==1):
+        add_task()
+    elif(choice==2):
+        view_task()
+    elif(choice==3):
+        delete_task()
+    elif(choice==4):
+        mark_as_done()
+    elif(choice==5):
+        exit()
+        break
+else:
+    print("Invalid input... Try again!")
